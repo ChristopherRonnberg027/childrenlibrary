@@ -1,6 +1,7 @@
 <template>
-  <section class="bookshelf-container">
-    <h1>Classic children books</h1>
+<div class="wrapper">
+  <h1>Classic Children books</h1>
+  <section class="bookshelf">
     <div class="books-container">
       <BookThumb
       v-for="book in bookList"
@@ -12,6 +13,7 @@
       />
     </div>
   </section>
+  </div>
 </template>
 
 <script>
@@ -28,3 +30,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+.books-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+</style>

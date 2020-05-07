@@ -1,11 +1,14 @@
 <template>
-  <article class="book-thumb" v-bind:style="{background: color}">
-    <div class="cover-back"></div>
-    <div class="book-data-container">
-      <h2 class="book-title">{{title}}</h2>
-      <p class="book-author">{{author}}</p>
-    </div>
-  </article>
+  <div>
+    <div class="gradient"></div>
+    <article class="book" v-bind:style="{background: color}">
+      <div class="fold"></div>
+      <div class="text">
+        <h2 class="book-title">{{title}}</h2>
+        <p class="book-author">{{author}}</p>
+      </div>
+    </article>
+  </div>
 </template>
 
 <script>
@@ -20,32 +23,39 @@ export default {
 };
 </script>
 <style scoped>
-article.book-thumb {
+
+article.book {
   display: flex;
-  flex-wrap: nowrap;
-  width: 15rem;
-  height: 20rem;
-  margin: 10px;
-}
-.cover-back {
-  /* border-right: 2px solid rgba(0, 0, 0, 0.5);
-  right: 2em; */
-  border-width: 0 3px 0 0;
-  border-color: rgba(0,0,0,0.5);
-  border-style: solid;
-  min-width: 20px;
+  width: 17em;
+  height: 20em;
+  margin: 0.6em;
+  transform: scale(1);
+  transition: 0.2s transform;
+  cursor: pointer;
 }
 
-.book-data-container {
+article.book:hover {
+  transform: scale(1.1);
+}
+
+.fold {
+  margin-left: 0.6em;
+  display: grid;
+  border-right: 0.3em solid rgba(0, 0, 0, 0.3);
+}
+
+.text {
+  margin-left: 1em;
+  margin-bottom: 1em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  flex-grow: 1;
-  padding: 10px;
 }
 
 .book-title,
-.book-authos {
+.book-author {
+  margin: 0em;
+  padding: 0em;
   color: white;
 }
 </style>
