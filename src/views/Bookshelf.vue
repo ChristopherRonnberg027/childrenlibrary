@@ -2,16 +2,15 @@
   <div class="wrapper">
     <h1>Classic Children books</h1>
     <section class="bookshelf">
-      <div class="books-container">
-        <BookThumb
-          v-for="book in bookList"
-          v-bind:key="book.id"
-          v-bind:id="book.id"
-          v-bind:title="book.title"
-          v-bind:author="book.author"
-          v-bind:color="book.color"
-        />
-      </div>
+      <BookThumb
+        v-for="book in listOfBooks"
+        v-bind:key="book.id"
+        v-bind:id="book.id"
+        v-bind:title="book.title"
+        v-bind:author="book.author"
+        v-bind:color="book.color"
+        v-on:myEvent="thisBook"
+      />
     </section>
   </div>
 </template>
@@ -21,8 +20,13 @@ import BookThumb from "../components/BookThumb";
 export default {
   data() {
     return {
-      bookList: this.$root.booksDB
-    };
+      listOfBooks: this.$root.booksDB
+    }
+  },
+  methods:{
+    thisBook(payload){
+      console.log(payload)
+    }
   },
   name: "BookShelf",
   components: {
@@ -38,11 +42,11 @@ export default {
   flex-direction: column;
 }
 
-h1{
+h1 {
   font-size: 6em;
   font-weight: 800;
 }
-.books-container {
+.bookshelf {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }

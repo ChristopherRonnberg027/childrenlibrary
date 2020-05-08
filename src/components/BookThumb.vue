@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="gradient"></div>
-    <article class="book" v-bind:style="{background: color}">
+    <article class="book" v-bind:style="{background: color}" v-on:click="youClickedMe">
       <div class="fold"></div>
       <div class="text">
         <h2 class="book-title">{{title}}</h2>
@@ -19,43 +18,53 @@ export default {
     title: String,
     author: String,
     color: String
+  },
+  methods:{
+    youClickedMe(){
+      this.$emit('myEvent',this.title)
+    }
   }
 };
 </script>
-<style scoped>
+<style lang="sass" scoped>
 
-article.book {
-  display: flex;
-  width: 17em;
-  height: 20em;
-  margin: 0.6em;
-  transform: scale(1);
-  transition: 0.2s transform;
-  cursor: pointer;
-}
 
-article.book:hover {
-  transform: scale(1.1);
-}
+article.book 
+  display: flex
+  width: 17em
+  height: 20em
+  margin: 0.6em
+  transform: scale(1)
+  transition: 0.2s transform
+  cursor: pointer
+  background-image: -moz-linear-gradient(to right top, black, white)
+  background-image: -webkit-linear-gradient(to right top, black, white)
+  background-image: linear-gradient(to right top, black, white)
 
-.fold {
-  margin-left: 0.6em;
-  display: grid;
-  border-right: 0.3em solid rgba(0, 0, 0, 0.3);
-}
 
-.text {
-  margin-left: 1em;
-  margin-bottom: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
+
+article.book:hover 
+  transform: scale(1.1)
+
+
+.fold 
+  margin-left: 0.6em
+  display: grid
+  border-right: 0.3em solid rgba(0, 0, 0, 0.3)
+
+
+.text 
+  margin-left: 1em
+  margin-bottom: 1em
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+
 
 .book-title,
-.book-author {
-  margin: 0em;
-  padding: 0em;
-  color: white;
-}
+.book-author 
+  margin: 0em
+  padding: 0em
+  color: white
+
 </style>
