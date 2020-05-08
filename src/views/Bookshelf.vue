@@ -9,7 +9,7 @@
         v-bind:title="book.title"
         v-bind:author="book.author"
         v-bind:color="book.color"
-        v-on:myEvent="thisBook"
+        v-on:showInfoAbout="thisBook"
       />
     </section>
   </div>
@@ -20,12 +20,12 @@ import BookThumb from "../components/BookThumb";
 export default {
   data() {
     return {
-      listOfBooks: this.$root.booksDB
+      listOfBooks: this.$root.booksDB,
     }
   },
   methods:{
     thisBook(payload){
-      console.log(payload)
+        console.log(payload)
     }
   },
   name: "BookShelf",

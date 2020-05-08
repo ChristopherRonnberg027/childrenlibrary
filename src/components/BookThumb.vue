@@ -1,6 +1,6 @@
 <template>
   <div>
-    <article class="book" v-bind:style="{background: color}" v-on:click="youClickedMe">
+    <article class="book" v-bind:style="{background: color}" v-on:click="viewBook">
       <div class="fold"></div>
       <div class="text">
         <h2 class="book-title">{{title}}</h2>
@@ -20,8 +20,8 @@ export default {
     color: String
   },
   methods:{
-    youClickedMe(){
-      this.$emit('myEvent',this.title)
+    viewBook(){
+      this.$emit('showInfoAbout', this.id)
     }
   }
 };

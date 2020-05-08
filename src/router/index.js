@@ -19,7 +19,13 @@ Vue.use(VueRouter)
     path: '/bookshelf',
     name: 'Bookshelf',
     component: () => import('../views/BookShelf.vue')
-  }
+  },
+  {
+    path: '/bookpresentation',
+    name: 'BookPresentation',
+    component: () => import('../views/BookPresentation.vue')
+  },
+  
 ]
 
 const router = new VueRouter({
