@@ -1,32 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
+import BookInformation from '../views/BookInformation.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('../views/Home.vue')
   },
   {
-    path: '/about/:id',
-    name: 'About',
-    component: About, props: true
-  },
-  {
-    path: '/bookshelf',
-    name: 'Bookshelf',
-    component: () => import('../views/BookShelf.vue')
-  },
-  {
-    path: '/bookpresentation',
-    name: 'BookPresentation',
-    component: () => import('../views/BookPresentation.vue')
-  },
-  
+    path: '/bookinformation/:id',
+    name: 'Bookinformation',
+    component: BookInformation, props: true
+  }
+
+
 ]
 
 const router = new VueRouter({
