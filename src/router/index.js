@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
@@ -11,9 +12,9 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/about',
+    path: '/about/:id',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: About, props: true
   },
   {
     path: '/bookshelf',

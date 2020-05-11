@@ -1,6 +1,7 @@
 <template>
   <div>
     <article class="book" v-bind:style="{background: color}" v-on:click="viewBook">
+      
       <div class="fold"></div>
       <div class="text">
         <h2 class="book-title">{{title}}</h2>
@@ -13,6 +14,13 @@
 <script>
 export default {
   name: "BookThumb",
+    // data() {
+    // return {
+    //    listOfBooks: this.$root.booksDB
+    // };
+    // computed:{
+    //   bookObjectList
+    // },
   props: {
     id: Number,
     title: String,
