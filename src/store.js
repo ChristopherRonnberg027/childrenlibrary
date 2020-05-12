@@ -8,6 +8,7 @@ export const store = new Vuex.Store({
     state: {
         booksDB: BookObject.books
     },
+    
     getters: {
         bookObjectList: state => {
             return state.booksDB

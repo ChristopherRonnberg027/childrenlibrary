@@ -34,11 +34,6 @@
 <script>
 import BigBook from "../components/BigBook";
 export default {
-  // data() {
-  //   return {
-  //     bookTitle: this.$route.params.id
-  //   };
-  // }
   components: {
     BigBook: BigBook
   },
