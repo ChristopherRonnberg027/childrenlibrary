@@ -1,15 +1,13 @@
 <template>
   <div class="wrapper">
-    <h1>8 Classic Children books</h1>
+    <h1>{{listOfBooks.length}} Classic Children books</h1>
     <section class="bookshelf">
       <SmallBook
         v-for="book in listOfBooks"
         v-bind:key="book.id"
-       :book="book"
-        
+        :book="book"
       />
     </section>
-
   </div>
 </template>
 
@@ -25,7 +23,10 @@ export default {
     // viewThisBook(bookId) {
     //   console.log(bookId)
     //   this.$router.push({ name: "Bookinformation", params: { id: bookId } });
-    // }
+    // }a
+    testPrint(){
+      console.log('hej')
+    }
   },
   name: "Home",
   components: {

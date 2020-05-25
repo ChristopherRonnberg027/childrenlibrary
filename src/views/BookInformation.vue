@@ -9,9 +9,7 @@
     </nav>
     <main>
       <section class="bookCover">
-        <SmallBook
-          :book="thisBook"
-        />
+        <SmallBook class="large-book" :book="thisBook" />
         <!-- <BigBook
           v-bind:id="thisBook.id"
           v-bind:title="thisBook.title"
@@ -53,6 +51,11 @@ export default {
 };
 </script>
 <style scoped>
+.large-book {
+  width: 1em;
+  height: 1em;
+}
+
 a {
   font-size: 1em;
   text-decoration: none;
