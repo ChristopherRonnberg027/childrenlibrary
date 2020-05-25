@@ -5,11 +5,8 @@
       <SmallBook
         v-for="book in listOfBooks"
         v-bind:key="book.id"
-        v-bind:id="book.id"
-        v-bind:title="book.title"
-        v-bind:author="book.author"
-        v-bind:color="book.color"
-        v-on:showInfoAbout="viewThisBook(book.id)"
+       :book="book"
+        
       />
     </section>
 
@@ -25,9 +22,10 @@ export default {
     }
   },
   methods: {
-    viewThisBook(bookId) {
-      this.$router.push({ name: "Bookinformation", params: { id: bookId } });
-    }
+    // viewThisBook(bookId) {
+    //   console.log(bookId)
+    //   this.$router.push({ name: "Bookinformation", params: { id: bookId } });
+    // }
   },
   name: "Home",
   components: {

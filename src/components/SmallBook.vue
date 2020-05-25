@@ -1,10 +1,12 @@
 <template>
   <div>
-    <article class="book" v-bind:style="{background: color}" v-on:click="viewBook">
+    <article class="book" 
+    v-bind:style="{background: book.color}" 
+    v-on:click="viewThisBook(book.id)">
       <div class="fold"></div>
       <div class="text">
-        <h2 class="book-title">{{title}}</h2>
-        <p class="book-author">{{author}}</p>
+        <h2 class="book-title">{{book.title}}</h2>
+        <p class="book-author">{{book.author}}</p>
       </div>
     </article>
   </div>
@@ -14,14 +16,12 @@
 export default {
   name: "SmallBook",
   props: {
-    id: Number,
-    title: String,
-    author: String,
-    color: String
+    book : Object
   },
   methods: {
-    viewBook() {
-      this.$emit("showInfoAbout", this.id);
+    viewThisBook(bookId) {
+      console.log(bookId)
+      this.$router.push({ name: "Bookinformation", params: { id: bookId } });
     }
   }
 };

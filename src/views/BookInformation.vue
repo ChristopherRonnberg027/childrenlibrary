@@ -2,17 +2,22 @@
   <div class="bookPresentation">
     <div v-if="thisBook"></div>
     <nav>
-      <button><router-link to="/">Back</router-link></button>
+      <button>
+        <router-link to="/">Back</router-link>
+      </button>
       <router-view />
     </nav>
     <main>
       <section class="bookCover">
-        <BigBook
+        <SmallBook
+          :book="thisBook"
+        />
+        <!-- <BigBook
           v-bind:id="thisBook.id"
           v-bind:title="thisBook.title"
           v-bind:author="thisBook.author"
           v-bind:color="thisBook.color"
-        />
+        />-->
       </section>
       <section class="bookInfo">
         <h1>{{thisBook.title}}</h1>
@@ -32,10 +37,12 @@
   </div>
 </template>
 <script>
-import BigBook from "../components/BigBook";
+// import BigBook from "../components/BigBook";
+import SmallBook from "../components/SmallBook";
 export default {
   components: {
-    BigBook: BigBook
+    // BigBook: BigBook
+    SmallBook
   },
   props: ["id"],
   computed: {
